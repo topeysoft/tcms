@@ -26,7 +26,7 @@ mongoose.connect('mongodb://topeysoft:tinbed123@ds063124.mongolab.com:63124/tsca
     }
 });
 
-var config = require(__base + 'data/config.json');
+var config = require(__base + 'data/config');
 var routes = require(__base + 'routes/index');
 var preview = require(__base + 'routes/preview');
 var apiRoute = require(__base + 'routes/api');

@@ -14,8 +14,8 @@ router.get('/editable/:page*?',
     function (req, res) {
     
     //Let's clean up the config from cache and require it agian just in anything has changed
-    delete require.cache[require.resolve(__base + 'data/config.json')];
-    var config = require(__base + 'data/config.json');
+    delete require.cache[require.resolve(__base + 'data/config')];
+    var config = require(__base + 'data/config');
     
     if (req.is_authorized) {
         
@@ -79,8 +79,8 @@ router.get('/login',
     function (req, res) {
     
     //Let's clean up the config from cache and require it agian just in anything has changed
-    delete require.cache[require.resolve(__base + 'data/config.json')];
-    var config = require(__base + 'data/config.json');
+    delete require.cache[require.resolve(__base + 'data/config')];
+    var config = require(__base + 'data/config');
     
     var dataAccess = new (require(__base + 'utilities/dal'));
     
@@ -99,8 +99,8 @@ router.get('/register',
     function (req, res) {
     
     //Let's clean up the config from cache and require it agian just in anything has changed
-    delete require.cache[require.resolve(__base + 'data/config.json')];
-    var config = require(__base + 'data/config.json');
+    delete require.cache[require.resolve(__base + 'data/config')];
+    var config = require(__base + 'data/config');
     
     var dataAccess = new (require(__base + 'utilities/dal'));
     

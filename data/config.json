@@ -17,7 +17,7 @@
 	},
 	"jwt_options": {
 	    "algorithm": "HS256",
-	    "expiresIn": 3600,
+	    "expiresIn": 3600,  
 	    "audience": "",
 	    "subject": "TSC JWT",
 	    "issuer": "TopeySoft Computers",

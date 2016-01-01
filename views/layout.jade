@@ -1,0 +1,30 @@
+﻿doctype html
+html
+  head
+    title= title
+    block headMeta
+    block beforeHeadStyle
+    link(rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css")
+    link(rel='stylesheet', href='/bower_components/materialize/dist/css/materialize.min.css')
+    link(rel='stylesheet', href='/stylesheets/main.css')
+    block afterHeadStyle
+  body.grey.lighten-2.not-ready
+    div.row
+        div.col.s12.m5.l4.white-text#left-nav
+            block leftNav
+        div.col.s12.m7.l8.grey.lighten-4#right-content
+            div.col.s12
+                block header
+            div.col.s12
+                block content
+            footer.col.s12
+                block footer
+    block beforeFootScript
+    script(type='text/javascript', src='/bower_components/jquery/dist/jquery.min.js')
+    script(type='text/javascript', src='/bower_components/materialize/dist/js/materialize.min.js')
+    script(type='text/javascript').
+        $(document).ready(function(){
+            $('body').addClass('ready');
+         });
+        
+    block afterFootScript

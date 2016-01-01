@@ -1,0 +1,67 @@
+﻿[
+  {
+    "name": "cmsadmin",
+    "items": [
+      {
+        "text": "Dashboard",
+        "href": "#/"
+      },
+      {
+        "text": "Articles",
+        "href": "#",
+        "submenu": [
+          {
+            "text": "View all",
+            "href": "#/list/articles"
+          },
+          {
+            "text": "Add new",
+            "href": "#/create/articles"
+          },
+
+          {
+            "text": "View Drafts",
+            "href": "#/drafts/articles"
+          },
+          {
+            "text": "View in trash",
+            "href": "#/trash/articles"
+          }
+
+        ]
+      },
+      {
+        "text": "Authors",
+        "href": "#",
+        "submenu": [
+          {
+            "text": "View all",
+            "href": "#/list/authors"
+          },
+          {
+            "text": "Add new",
+            "href": "#/create/authors"
+          },
+
+          {
+            "text": "View Drafts",
+            "href": "#/drafts/authors"
+          },
+          {
+            "text": "View in trash",
+            "href": "#/trash/authors"
+          }
+
+        ]
+      },
+      {
+        "text": "Comments",
+        "href": "#"
+      },
+      {
+        "text": "Themes",
+        "href": "#"
+      }
+    ]
+  }
+    ]

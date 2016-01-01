@@ -1,0 +1,51 @@
+﻿extends layout
+
+block leftNav
+    //div.left#site-logo
+        img(width="45" height="45" src="/images/site-logo.png")
+    div.profile-info.clearfix
+        div.col.s12.push-s0
+            div.col.s2
+                img.circle(width="45" height="45" src="/images/profile-pix.jpg")
+            h5.col.s10.thin.center-align Temitope Adeyeri
+            div.col.s12.thin.center-align
+                div.col.s6.waves-effect.waves-light.border-bottom.border-top.border-right 
+                    a.center-align.white-text(href="/account")
+                        span.padded.truncate My account
+                div.col.s6.waves-effect.waves-light.border-bottom.border-top  
+                    a.center-align.white-text(href="/logout")
+                        span.padded.truncate Log out
+                p &nbsp;
+    mixin menuItems(menu)
+        li
+            a(href="#{menu.href}")= (menu.is_parent?'[ + ] ':'') +menu.text
+            if menu.submenu !== undefined
+                ul.submenu
+                        each item in menu.submenu
+                             +menuItems(item)
+    div
+        ul.left-menu.thin
+            li.clearfix
+            each menu in left_menu
+                +menuItems(menu)
+                //p.col.s12.thin.center-align
+                    span.truncate  temi.adeyeri@gmail.com
+    
+block header
+    h3.grey-text.text-darken-3.center-align.thin= title
+    hr.dashed
+block content
+    div.container.regular#main-content 
+        each model in models
+            div= model
+     block footer
+    hr.dashed
+    div.grey-text.text-darken-3.center-align
+        ul.foot-nav
+           li
+             a TopeySoft homepage 
+           li
+             a My other projects
+        div.col.s8.push-s2
+            hr.dashed.clearfix
+            div.credits  &copy; 2015 TopeySoft Computers

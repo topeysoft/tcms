@@ -1,0 +1,42 @@
+﻿[
+    {
+      "text": "Dashboard",
+      "href": "/home"
+    },
+    {
+      "text": "Articles",
+      "href": "#",
+      "submenu": [
+        {
+          "text": "View all",
+          "href": "/about"
+        },
+        {
+          "text": "Add new",
+          "href": "#"
+        },
+        
+        {
+          "text": "View Drafts",
+          "href": "#"
+        },
+        {
+          "text": "View in trash",
+          "href": "#"
+        }
+
+      ]
+    },
+    {
+      "text": "Authors",
+      "href": "#"
+    },
+    {
+      "text": "Comments",
+      "href": "#"
+    },
+    {
+      "text": "Themes",
+      "href": "#"
+    }
+  ]

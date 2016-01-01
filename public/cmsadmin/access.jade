@@ -1,0 +1,97 @@
+﻿extends layout_no_menu
+// LEFT MENU
+
+    
+
+// HEADER
+block header
+    h3.grey-text.text-darken-3.center-align.thin= title
+    hr.dashed
+
+// CONTENT
+block content
+    div.regular.container#main-content 
+        mixin loginView(url)
+            p.center-align Enter your credentials below to continue.
+            div(class="row"   data-ng-controller="LoginCtrl")
+                    form(class="col s12 m8 psuh-m2 l6 push-l3" name="loginForm"  data-ng-submit="login()" novalidate)
+                       div.center-align(data-ng-bind-html="login_error_message")
+                       div(class="row")
+                            div(class="input-field col s12")
+                              i( class="fa fa-at prefix") 
+                              input(id="email"  ng-model="user.email" required type="email"  class="validate")
+                              label(for="email") Email
+                            div(class="input-field col s12")
+                              i(class="fa fa-lock prefix") 
+                              input(id="password" type="password" class="validate" ng-model="user.password" 
+                                                    ng-minlength="6" 
+                                                    ng-maxlength="25"
+                                                    required class="validate")
+                              label(for="password") Password
+                            button(type="submit" data-ng-disabled="").input-field.btn.btn-large.col.s12.waves-effect.waves-light Log in
+               
+                        div.row
+                            p.center-align Or 
+                                a(href="#{url}") you can register here.
+        p.center-align.flow-text !{content}
+        div
+            case view
+                when 0 
+                    - var account_sign_up_url = sign_up_url || "#";
+                    +loginView(account_sign_up_url)
+             
+                when 1
+                      - var account_login_url = login_url || "#";
+                      p.center-align Enter your email and password below to register.
+                      div.row(data-ng-controller="RegisterCtrl")
+                            form(class="col s12 m8 psuh-m2 l6 push-l3"  name="registerForm"   data-ng-submit="register()"  novalidate)
+                                div.row
+                                    div(class="input-field col s12")
+                                      i( class="fa fa-at prefix") 
+                                      input(id="email" name="email" ng-model="user.email" required type="email" class="validate")
+                                      label(for="email") Email
+                                      div(data-ng-show="!registerForm.email.$pristine && registerForm.email.$error"  role="alert").red-text.right-align
+                                         div(data-ng-message="required, invalid") Please enter a valid email
+                                div.row
+                                    div(class="input-field col s12")
+                                      i(class="fa fa-lock prefix") 
+                                      input(id="password" name="password" type="password" ng-model="user.password" 
+                                                        ng-minlength="6" 
+                                                        ng-maxlength="25"
+                                                        required class="validate")
+                                      label(for="password") Password
+                                      div(data-ng-show="!registerForm.password.$pristine && registerForm.password.$error"  role="alert").red-text.right-align
+                                             div(data-ng-show="registerForm.password.$invalid") Please enter a valid password
+                                             //div(data-ng-message="minlength") Your password is too short
+                                             //div(data-ng-message="maxlength") Your password is too long
+                                div.row
+                                    div(class="input-field col s12")
+                                      i(class="fa fa-check-circle prefix") 
+                                      input(id="c_password" name="c_password" type="password" ng-model="user.c_password" 
+                                                        ng-minlength="6" 
+                                                        ng-maxlength="25"
+                                                        required class="validate")
+                                      div(data-ng-show="user.password!=user.c_password"  role="alert").red-text.right-align
+                                         //div(data-ng-message="required") Please enter a valid password
+                                         div(data-ng-show="!registerForm.c_password.$pristine && user.password!=user.c_password") Your password did not match.
+                                      label(for="c_password") Confirm password
+                                    button(type="submit" ).input-field.btn.btn-large.blue.col.s12.waves-effect.waves-light Sign up
+                            
+                                div.row
+                                    p.center-align Or 
+                                        a(href="#{account_login_url}") login here.
+                default
+                    - var account_sign_up_url = sign_up_url || "#";
+                    +loginView(account_sign_up_url)
+// FOOTER
+block footer
+    hr.dashed
+    div.grey-text.text-darken-3.center-align
+        ul.foot-nav
+           li
+             a(href="/" target="_blank") Visit homepage 
+           li
+             a(href="http://localhost:3000/admin" target="_blank")  User Management
+        div.col.s8.push-s2
+            hr.dashed.clearfix
+            div.credits  &copy; 2015 TopeySoft Computers

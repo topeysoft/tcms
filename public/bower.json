@@ -1,0 +1,32 @@
+{
+  "name": "public",
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-route": "~1.4.8",
+    "Materialize": "materialize#~0.97.3",
+    "angular-resource": "~1.4.8",
+    "lodash": "~3.10.1",
+    "angular-lodash": "~0.1.2",
+    "a0-angular-storage": "~0.0.12",
+    "tinymce": "tinymce-dist#~4.3.2",
+    "angular-ui-tinymce": "~0.0.12",
+    "angular-timeago": "~0.2.4",
+    "angular-messages": "~1.4.8",
+    "angular-sanitize": "~1.4.8"
+  },
+  "resolutions": {
+    "lodash": "~3.10.1"
+  }
+}

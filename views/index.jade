@@ -1,0 +1,54 @@
+﻿extends layout
+
+block leftNav
+    div.left#site-logo
+        img(width="45" height="45" src="/images/site-logo.png")
+    div.profile-image.circle(style="background-image:url('/images/profile-pix.jpg');")
+        div.inner.circle
+    div.profile-info
+        div.col.s12.push-s0
+            h.col.s12.thin.center-align Temitope Adeyeri
+            div.col.s12.thin.center-align
+                div.col.s6.waves-effect.waves-light.border-bottom.border-top.border-right 
+                    a.center-align.white-text(href="/about")
+                        span.padded.truncate About Me
+                div.col.s6.waves-effect.waves-light.border-bottom.border-top  
+                    a.center-align.white-text(href="/portfolio")
+                        span.padded.truncate My Portfolio
+            p.col.s12.thin.center-align
+                span.truncate  temi.adeyeri@gmail.com
+    div.social-links.col.s8.push-s2
+        div.col.s12
+            div.col.s6.social-circle-link.border-bottom.border-right
+               a.left-clipped.waves-effect.waves-light.circle.center-align.blue.darken-4 
+                    i.fa.fa-facebook
+                    span.description share on facebook
+            div.col.s6.social-circle-link.border-bottom 
+               a.right-clipped.waves-effect.waves-light.circle.center-align.cyan 
+                    i.fa.fa-twitter
+                    span.description share on twitter
+        div.col.s12
+            div.col.s6.social-circle-link.border-right
+               a.left-clipped.waves-effect.waves-light.circle.center-align.light-blue.ascent-4 
+                    i.fa.fa-linkedin
+                    span.description view on linkedIn
+            div.col.s6.social-circle-link
+               a.right-clipped.waves-effect.waves-light.circle.center-align.red.darken-2
+                    i.fa.fa-youtube
+                    span.description View  youtube channel
+block header
+    h3.grey-text.text-darken-3.center-align.thin= title
+    hr.dashed
+block content
+    div.container.regular#main-content !{content}
+     block footer
+    hr.dashed
+    div.grey-text.text-darken-3.center-align
+        ul.foot-nav
+           li
+             a TopeySoft homepage 
+           li
+             a My other projects
+        div.col.s8.push-s2
+            hr.dashed.clearfix
+            div.credits  &copy; 2015 TopeySoft Computers

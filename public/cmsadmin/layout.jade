@@ -1,0 +1,47 @@
+﻿doctype html
+html(data-ng-app="cmsadmin" data-ng-controller="AppCtrl")
+  head
+    title= title + " - "+ app_info.name
+    block headMeta
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    block beforeHeadStyle
+    link(rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css")
+    link(rel='stylesheet', href='/bower_components/materialize/dist/css/materialize.min.css')
+    link(rel='stylesheet', href='/cmsadmin/stylesheets/main.css')
+    block afterHeadStyle
+  body(detect-mobile="is_mobile").grey.lighten-2.not-ready
+        a(class="waves-effect waves-light menu-toggle grey-text left" ng-click="toggleMenu()")
+            span(class="icon")
+                i(class="mid")
+        div.row
+            div.col.s12.m4.l3.blue-grey.white-text#left-nav
+                block leftNav
+            div.col.s12.m8.l9.grey.lighten-4#right-content
+                div.col.s12
+                    block header
+                div.col.s12
+                    block content
+                footer.col.s12
+                    block footer
+        block beforeFootScript
+        script(type='text/javascript', src='/bower_components/jquery/dist/jquery.min.js')
+        script(type="text/javascript" src="/bower_components/tinymce-dist/tinymce.js")
+        script(type='text/javascript', src='/bower_components/angular/angular.min.js')
+        script(type="text/javascript" src="/bower_components/angular-ui-tinymce/src/tinymce.js")
+        script(type='text/javascript', src='/bower_components/angular-timeago/dist/angular-timeago.min.js')
+        script(type='text/javascript', src='/bower_components/angular-route/angular-route.min.js')
+        script(type='text/javascript', src='/bower_components/angular-resource/angular-resource.js')
+        script(type='text/javascript', src='/bower_components/lodash/lodash.js')
+        script(type='text/javascript', src='/bower_components/angular-lodash/angular-lodash.js')
+        script(type='text/javascript', src='/bower_components/materialize/dist/js/materialize.min.js')
+        script(type="text/javascript" src="/bower_components/a0-angular-storage/dist/angular-storage.js")
+        script(type="text/javascript" src="/bower_components/angular-sanitize/angular-sanitize.min.js")
+        script(type='text/javascript' src='/cmsadmin/javascripts/utilities.js')
+        script(type='text/javascript' src='/cmsadmin/javascripts/main.js')
+        script(type='text/javascript' src='/cmsadmin/javascripts/factory.js')
+        script(type='text/javascript' src='/cmsadmin/javascripts/services.js')
+        script(type='text/javascript' src='/cmsadmin/javascripts/directives.js')
+        script(type='text/javascript' src='/cmsadmin/javascripts/filters.js')
+        script(type='text/javascript' src='/cmsadmin/javascripts/controller.js')
+        script(type='text/javascript' src='/cmsadmin/javascripts/app.js')
+        block afterFootScript

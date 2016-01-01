@@ -1,0 +1,74 @@
+﻿<header class="main-header">
+    <!--<button class="btn btn-flat waves-effect btn-blue-grey waves-light menu-toggle" ng-click="toggleMenu()"><i class="fa fa-bars"></i></button>-->
+    <h4 class="thin">Detail: {{item_name}}</h4>
+</header>
+<hr class="dashed"/>
+<form ng-fprm id="detailForm">
+    <div style="padding:10px;">
+        <div class="row">
+            <div class="col s12 m10 offset-m1">
+                <div ng-if="key!='id' && key.charAt(0)!='_'" ng-repeat="(key, value) in item">
+
+                    <div class="col s12"><span class="detail-label grey lighten-2">{{key | uppercase|noUnderscore:' '}}</span></div>
+                    
+                    <div class="col s12  detail-value" ng-if="!isCollection(value)">
+                        <div class="input-field">
+                            <input editable-text ed-text-on="editable" class="{{editable}}" type="{{(key|lowercase)=='password'?'password':'text'}}" id="{{key}}" data-key="{{key}}" data-ng-model="item[key]" />
+                            <label ng-if="!editable" for="{{key}}">{{key|noUnderscore:' ' | titlecase}}</label>
+                        </div>
+                    </div>
+                    <div class="col s12" ng-if="isCollection(value)">
+                        <div>
+                            <div class="input-field">
+                                <select multiple data-ng-model="item[key]" prop-to-display="name" ng-options="i.name for (k, i) in  app_info[key] track by i.id"></select>
+
+                                <label ng-if="!editable"> Select {{key|noUnderscore:' ' | titlecase}}</label>
+                            </div>
+                            <span ng-init="$parent.init_select()"></span>
+                        </div>
+                    </div>
+
+                    <p>&nbsp;</p>
+
+                </div>
+                <!--<table class="bordered highlight responsive-table">
+
+
+                    <tbody class="no-dropcap">
+                        <tr ng-if="key!='id' && key.charAt(0)!='_'" ng-repeat="(key, value) in item">
+
+                            <th width="20%">{{key | titlecase|noUnderscore:' '}}</th>
+                            <td ng-if="!isCollection(value)">
+                                <div class="input-field">
+                                    <input editable-text ed-text-on="editable" class="{{editable}}" type="{{(key|lowercase)=='password'?'password':'text'}}" id="{{key}}" data-key="{{key}}" data-ng-model="item[key]" />
+                                    <label ng-if="!editable" for="{{key}}">{{key|noUnderscore:' ' | titlecase}}</label>
+                                </div>
+                            </td>
+                            <td ng-if="isCollection(value)">
+                                <div>
+                                    <div class="input-field">
+                                        <select multiple data-ng-model="item[key]" prop-to-display="name" ng-options="i.name for (k, i) in  app_info[key] track by i.id"></select>
+
+                                        <label ng-if="!editable"> Select {{key|noUnderscore:' ' | titlecase}}</label>
+                                    </div>
+                                    <span ng-init="$parent.init_select()"></span>
+                                </div>
+                            </td>
+
+
+                        </tr>
+
+                    </tbody>
+                </table>-->
+
+                <!--<a class="btn-floating right cyan tooltipped" data-position="bottom" data-delay="50" data-tooltip="Add field"><i class="material-icons">playlist_add</i></a>-->
+                <div>
+                    <button ng-click="saveChanges()" ng-disabled="(!is_modified) || saving_changes" class="btn blue waves-effect waves-light ">
+                        <i class="fa fa-floppy-o"></i> {{saving_changes?'Saving changes':'Save'}}
+                    </button>
+                    <inline-loader class="{{saving_changes?'':'hide'}}" for-all="false" size="small" style="padding-top:5px; position:relative; float:left;"></inline-loader>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
